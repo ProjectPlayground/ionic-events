@@ -1,0 +1,30 @@
+
+<ion-view view-title="{{params.name}}">
+    <ion-nav-back-button class="button-clear">
+        <i class="icon ion-ios-arrow-left"></i> Back
+    </ion-nav-back-button>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-text-wrap item-button-right">
+
+                <h2 class="venue">@{{event.location_summary.split(",")[0]}}</h2> <br>
+                <button class="button button-positive icon-left" side="right" ng-click="toggleFav()"
+                        ng-class="{'ion-checkmark-round': event.favorite, 'ion-plus-round button-outline': !event.favorite }">
+                    {{event.favorite ? "Favorited" : "Favorite"}}
+                </button>
+                <p><strong>Address: </strong>{{event.address}}</p>
+                <p><strong>Date & Time: </strong>{{event.startDateTime | date: 'MMM d, y h:mm a'}} - {{event.endDateTime | date: 'MMM d, y h:mm a'}}</p>
+
+            </div>
+
+            <div class="item item-image">
+                <img ng-src="{{event.image}}" />
+            </div>
+            <div class="item item-text-wrap item-button-bottom">
+                <p>{{event.description}}</p>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>
